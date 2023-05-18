@@ -4,6 +4,8 @@
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 #Exclude postgres-data locally stored
 /postgres-data/*
+/pgadmin-data/*
+
 # User-specific files
 *.rsuser
 *.suo
