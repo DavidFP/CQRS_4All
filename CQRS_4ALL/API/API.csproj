@@ -15,10 +15,39 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.6" />
+    <PackageReference Include="MediatR" Version="11.1.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Application\" />
+    <Folder Include="Domain\" />
+    <Folder Include="Infrastructure\" />
+    <Folder Include="Infrastructure\Commands\" />
+    <Folder Include="Infrastructure\Queries\" />
+    <Folder Include="Application\Dtos\" />
+    <Folder Include="Application\Handlers\" />
+    <Folder Include="Domain\Entities\" />
+    <Folder Include="Infrastructure\Queries\Product\" />
+    <Folder Include="Infrastructure\Queries\Order\" />
+    <Folder Include="Infrastructure\Commands\Order\" />
+    <Folder Include="Infrastructure\Commands\Product\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Application\" />
+    <None Remove="Domain\" />
+    <None Remove="Infrastructure\" />
+    <None Remove="Infrastructure\Commands\" />
+    <None Remove="Infrastructure\Queries\" />
+    <None Remove="Application\Dtos\" />
+    <None Remove="Application\Handlers\" />
+    <None Remove="Domain\Entities\" />
+    <None Remove="Infrastructure\Queries\Product\" />
+    <None Remove="Infrastructure\Queries\Order\" />
+    <None Remove="Infrastructure\Commands\Order\" />
+    <None Remove="Infrastructure\Commands\Product\" />
+  </ItemGroup>
 </Project>
