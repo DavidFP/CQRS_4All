@@ -1,11 +1,8 @@
 ﻿using System;
+using MediatR;
+using API.Application.Dtos;
 namespace API.Infrastructure.Queries.Order
 {
-	public class GetOrderByIdQuery
-	{
-		public GetOrderByIdQuery()
-		{
-		}
-	}
+	public record GetOrderByIdQuery(int id):IRequest<OrderDto>;
 }
 

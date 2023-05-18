@@ -1,11 +1,6 @@
-﻿using System;
+﻿using MediatR;
+using API.Application.Dtos;
 namespace API.Infrastructure.Queries.Product
 {
-	public class GetProductById
-	{
-		public GetProductById()
-		{
-		}
-	}
+	public record GetProductById(int id):IRequest<ProductDto>;
 }
-

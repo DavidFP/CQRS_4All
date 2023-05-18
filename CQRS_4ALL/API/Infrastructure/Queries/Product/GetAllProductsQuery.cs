@@ -1,11 +1,7 @@
-﻿using System;
+﻿using MediatR;
+using API.Application.Dtos;
 namespace API.Infrastructure.Queries.Product
 {
-	public class GetAllProductsQuery
-	{
-		public GetAllProductsQuery()
-		{
-		}
-	}
+	public record GetAllProductsQuery():IRequest<IList<ProductDto>>;
 }
 

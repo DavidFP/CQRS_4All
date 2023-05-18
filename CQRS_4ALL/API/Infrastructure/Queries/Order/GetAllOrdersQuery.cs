@@ -3,6 +3,6 @@ using MediatR;
 using API.Application.Dtos;
 namespace API.Infrastructure.Queries.Order
 {
-	public record GetAllOrdersQuery();
+	public record GetAllOrdersQuery(): IRequest<IList<OrderDto>>;
 }
 
