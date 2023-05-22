@@ -2,6 +2,6 @@
 using MediatR;
 namespace API.Infrastructure.Commands.Order
 {
-	public record CreateOrderCommand():IRequest<OrderDto>;
+	public record CreateOrderCommand(OrderDto orderDto) :IRequest<OrderDto>;
 }
 

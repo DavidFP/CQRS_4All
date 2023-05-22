@@ -1,4 +1,5 @@
 using API.Data;
+using API.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -31,4 +32,44 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+if (!app.Environment.IsProduction() && !app.Environment.IsStaging())
+{
+    await SeedOrders();
+}
+
 app.Run();
+
+
+
+// Aux method
+async Task SeedOrders()
+{
+    using var scope = app.Services.CreateScope();
+    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    if (!context.Orders.Any())
+    {
+        var ordersToAdd = new List<Order>();
+        var productsToAdd = new List<Product>();
+        while (productsToAdd.Count < 10)
+        {
+            productsToAdd.Add(new Product()
+            {
+                Name = Faker.CompanyFaker.Name(),
+                Description = Faker.TextFaker.Sentence(),
+                Quantity = Faker.NumberFaker.Number(10),
+                Price = Faker.NumberFaker.Number(200)
+            });
+        }
+        while (ordersToAdd.Count < 100)
+        {
+            ordersToAdd.Add(new Order()
+            {
+                Name = Faker.NameFaker.Name(),
+                Address = Faker.LocationFaker.Street(),
+                Products = productsToAdd.Take(Faker.NumberFaker.Number(5)).ToList<Product>()
+            });
+        }
+        await context.Orders.AddRangeAsync(ordersToAdd);
+        await context.SaveChangesAsync();
+    }
+}

@@ -4,14 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace API.Domain.Entities
 {
     [Table("Products")]
-    public class Product
+    public class Product : BaseEntity
     {
-        [Key,Required]
-        public int Id { get; set; }
         [Required]
-        public string? Name  { get; set; }
-        public string? Description { get; set; }
-        public int Quantity { get; set; } 
+        public string Name { get; set; } = default!;
+        public string Description { get; set; } = default!;
+        public int Quantity { get; set; }
         public decimal Price { get; set; } = decimal.Zero;
 
         public virtual ICollection<Order>? Orders { get; set; }

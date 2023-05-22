@@ -4,18 +4,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace API.Domain.Entities
 {
     [Table("Orders")]
-    public class Order
+    public class Order : BaseEntity
     {
-        [Key,Required]
-        public int Id { get; set; }
-        public int ProductId { get; set; }
-
         [Required]
-        public string? Name { get; set; }
-        public string? Address { get; set; }     
-        public DateTime CreatedAt { get; set; }     
-        public DateTime UpdatedAt { get; set;}
-
-        public virtual Product? Product { get; set; }
+        public string Name { get; set; } = default!;
+        public string Address { get; set; } = default!;
+        public virtual ICollection<Product>? Products { get; set; }
     }
 }

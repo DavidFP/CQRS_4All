@@ -1,6 +1,6 @@
 ﻿using MediatR;
 namespace API.Infrastructure.Commands.Order
 {
-	public record DeleteOrderCommand(): IRequest<bool>;	
+    public record DeleteOrderCommand(int id) : IRequest<bool>;
 }
 

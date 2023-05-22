@@ -5,11 +5,12 @@ namespace API.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        public DbSet<Product> Products { get; set; } 
-        public DbSet<Order> Orders { get; set; }    
+        public DbSet<Product> Products { get; set; } = default!;
+        public DbSet<Order> Orders { get; set; } = default!;
 
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
